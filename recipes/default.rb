@@ -41,6 +41,7 @@ when 'binary'
   when 'debian'
     apt_repository 'sysdig' do
       uri node['sysdig']['apt']['uri']
+      distribution nil
       components node['sysdig']['apt']['components']
       key node['sysdig']['apt']['key']
       not_if "apt-key list | grep -i #{node['sysdig']['apt']['key_id']}"
